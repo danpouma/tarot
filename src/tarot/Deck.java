@@ -7,7 +7,7 @@ import java.util.Random;
  * @author dpoumakis
  * @date 2/8/2016
  */
-class Deck
+public class Deck
 {
     private Card[] cards;
     private int numCardsLeft;

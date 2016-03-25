@@ -5,12 +5,12 @@ package tarot;
  * @author dpoumakis
  * @date 2/8/2016
  */
-class Card
+public class Card
 {
-    public static final int CLUBS = 1;
-    public static final int DIAMONDS = 2;
-    public static final int HEARTS = 3;
-    public static final int SPADES = 4;
+    public static final int SWORDS = 1;
+    public static final int WANDS = 2;
+    public static final int COINS = 3;
+    public static final int CUPS = 4;
 
     public static final int JACK = 11;
     public static final int QUEEN = 12;
@@ -30,7 +30,7 @@ class Card
     {
         this.id = counter++;
         this.face = ACE;
-        this.suit = SPADES;
+        this.suit = CUPS;
     }
 
     public Card(int face, int suit)
@@ -81,7 +81,7 @@ class Card
     // Mutators for suit, face and id
     public void setSuit(int suit)
     { //test for valid data
-        if (suit == CLUBS || suit == DIAMONDS || suit == HEARTS || suit == SPADES)
+        if (suit == SWORDS || suit == WANDS || suit == COINS || suit == CUPS)
         {
             this.suit = suit;
         } 
@@ -118,17 +118,17 @@ class Card
         String s = "";
         switch (suit)
         {
-            case CLUBS:
-                s = "Clubs";
+            case SWORDS:
+                s = "Swords";
                 break;
-            case DIAMONDS:
-                s = "Diamonds";
+            case WANDS:
+                s = "Wands";
                 break;
-            case HEARTS:
-                s = "Hearts";
+            case COINS:
+                s = "Coins";
                 break;
-            case SPADES:
-                s = "Spades";
+            case CUPS:
+                s = "Cups";
                 break;
             default:
                 ;
