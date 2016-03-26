@@ -1,5 +1,7 @@
 package tarot;
 
+import java.util.LinkedList;
+
 /*
 TODO:
 Objective: dealing with linked lists
@@ -26,7 +28,17 @@ public class Tarot
 {
     public static void main(String[] args)
     {
-        // Dee
-    }
+        LinkedList table = new LinkedList();
+        Deck deck = new Deck();
+        
+        for (int i = 0; i < 9; i++)
+        {
+            table.add(deck.getTopCard());
+        }   
     
+        for (int i = 0; i < 9; i++)
+        {
+            System.out.println(table.remove());
+        }
+    }
 }

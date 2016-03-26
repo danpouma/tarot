@@ -109,9 +109,7 @@ public class Deck
         numCardsLeft--;
 
         // Set the topCard handle to the next card
-        // Took away [numCardsLeft -1... Fixed bug in war...
-        // that's scary... hahaha
-        topCard = cards[numCardsLeft];
+        topCard = cards[numCardsLeft-1];
         
         // Return the stored topCard
         return oldTopCard;
