@@ -1,6 +1,7 @@
 package tarot;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 /*
 TODO:
@@ -30,12 +31,26 @@ public class Tarot
     {
         LinkedList table = new LinkedList();
         Deck deck = new Deck();
-        
+        Random randomGen = new Random(System.currentTimeMillis());
+        int randomNumber = randomGen.nextInt(9);
         for (int i = 0; i < 9; i++)
         {
             table.add(deck.getTopCard());
         }   
-    
+        
+        System.out.println(randomNumber);
+        Card card = deck.getTopCard();
+        System.out.println(card);
+        
+        for (int i = 0; i < 9; i++)
+        {
+            if (i == randomNumber)
+            {
+                System.out.println("removed:" + table.remove(i));
+                table.add(i, card);
+            }
+        }
+        
         for (int i = 0; i < 9; i++)
         {
             System.out.println(table.remove());
