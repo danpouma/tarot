@@ -56,6 +56,7 @@ public class Tarot
         {
             if (i == randomNumber)
             {
+                System.out.println("added: " + card);
                 System.out.println("removed: " + table.remove(i));
                 table.add(i, card);
             }

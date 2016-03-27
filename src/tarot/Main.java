@@ -15,5 +15,10 @@ public class Main
         tarot.initializeTable();
         
         tarot.replaceCard(3, test);
+        
+        for (int i = 0; i < 9; i++)
+        {
+            tarot.printCard(i);
+        }
     }
 }
