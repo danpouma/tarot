@@ -20,40 +20,52 @@ number, removing a card and replacing it with the next card on the deck. Print
 the card that was removed and the card that replaced it.
 */
 
-
 /**
  *
  * @author dpoumakis
  */
 public class Tarot
 {
-    public static void main(String[] args)
+    private LinkedList table;
+    private Deck deck;
+    
+    public Tarot()
     {
-        LinkedList table = new LinkedList();
-        Deck deck = new Deck();
-        Random randomGen = new Random(System.currentTimeMillis());
-        int randomNumber = randomGen.nextInt(9);
-        for (int i = 0; i < 9; i++)
+        table = new LinkedList();
+        deck = new Deck();
+    }
+    
+    public void initializeTable()
+    {
+        for (int card = 0; card < 9; card++)
         {
             table.add(deck.getTopCard());
-        }   
-        
-        System.out.println(randomNumber);
-        Card card = deck.getTopCard();
-        System.out.println(card);
+        }
+    }
+    
+    public void printCard(int index)
+    {
+        System.out.println(table.get(index)); 
+    }
+    
+    public void replaceCard(int index, Card card)
+    {
+        int randomNumber = randomNumber();
         
         for (int i = 0; i < 9; i++)
         {
             if (i == randomNumber)
             {
-                System.out.println("removed:" + table.remove(i));
+                System.out.println("removed: " + table.remove(i));
                 table.add(i, card);
             }
         }
+    }
+    
+    public int randomNumber()
+    {
+        Random randomGen = new Random(System.currentTimeMillis());
         
-        for (int i = 0; i < 9; i++)
-        {
-            System.out.println(table.remove());
-        }
+        return randomGen.nextInt(9);
     }
 }
