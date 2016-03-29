@@ -26,6 +26,10 @@ the card that was removed and the card that replaced it.
  */
 public class Tarot
 {
+    // Variable to track home
+    // its the current card that each round lands on
+    // further implement it...
+    private int home;
     private LinkedList table;
     private Deck deck;
     
