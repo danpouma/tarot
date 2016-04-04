@@ -10,24 +10,11 @@ public class Main
     {
         Tarot tarot = new Tarot();
         
-        Card test = new Card(12,3);
-        
         tarot.initializeTable();
         
-        System.out.println("Cards before replacement...");
-        for (int i = 0; i < 9; i++)
+        for (int round = 0; round < 10; round++)
         {
-            tarot.printCard(i);
+            tarot.playRound();
         }
-        System.out.println("*END*");
-        
-        tarot.replaceCard(3, test);
-        
-        System.out.println("Cards after replacement...");
-        for (int i = 0; i < 9; i++)
-        {
-            tarot.printCard(i);
-        }
-        System.out.println("*END*");
     }
 }

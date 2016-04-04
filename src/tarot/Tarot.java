@@ -3,38 +3,19 @@ package tarot;
 import java.util.LinkedList;
 import java.util.Random;
 
-/*
-TODO:
-Objective: dealing with linked lists
-
-Now we are going to read fortunes: Tarot cards. The suits this time are swords, 
-wands, coins and cups. The face values stay the same but there are 14 cards to 
-a suit (King, Queen, Knight & Jack).
-
-Shuffle the deck and place nine cards in a circle. Randomly pick a number 1-9. 
-Count to that number going around the circle. When you get to that number card, 
-print what the card is and replace it in the circle with the next card on the 
-deck. At any given time, there are nine cards in the circle and you have a 
-“home card” (The one that tells your fate). A move consists of picking a random 
-number, removing a card and replacing it with the next card on the deck. Print 
-the card that was removed and the card that replaced it.
-*/
-
 /**
  *
  * @author dpoumakis
  */
 public class Tarot
 {
-    // Variable to track home
-    // its the current card that each round lands on
-    // further implement it...
     private int home;
     private LinkedList table;
     private Deck deck;
     
     public Tarot()
     {
+        home = 0;
         table = new LinkedList();
         deck = new Deck();
     }
@@ -51,26 +32,35 @@ public class Tarot
     {
         System.out.println(table.get(index)); 
     }
-    
+
     public void replaceCard(int index, Card card)
-    {
-        int randomNumber = randomNumber();
-        
+    {   
         for (int i = 0; i < 9; i++)
         {
-            if (i == randomNumber)
+            if (i == index)
             {
-                System.out.println("added: " + card);
-                System.out.println("removed: " + table.remove(i));
+                table.remove(i);
                 table.add(i, card);
             }
         }
     }
     
-    public int randomNumber()
+    public void playRound()
     {
         Random randomGen = new Random(System.currentTimeMillis());
+        int randomNumber = randomGen.nextInt(9);
         
-        return randomGen.nextInt(9);
+        home +=  randomNumber;
+        
+        if (home > 8)
+        {
+            home -= 9;
+        }
+        else
+        {
+            // Valid index
+        }
+        
+        replaceCard(home, deck.getTopCard());
     }
 }
