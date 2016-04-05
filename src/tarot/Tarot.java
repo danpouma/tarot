@@ -39,7 +39,8 @@ public class Tarot
         {
             if (i == index)
             {
-                table.remove(i);
+                System.out.println("Removed: " +table.remove(i));
+                System.out.println("Added: " + card);
                 table.add(i, card);
             }
         }

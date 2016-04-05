@@ -14,7 +14,9 @@ public class Main
         
         for (int round = 0; round < 10; round++)
         {
+            System.out.println("Round " + round);
             tarot.playRound();
+            System.out.println("**************");
         }
     }
 }
